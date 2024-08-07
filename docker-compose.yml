@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  frontend:
+    depends_on: 
+      - backend
+    build: ./frontend
+    ports:
+      - 3000:3000
+
+  backend: 
+    depends_on: 
+      - db
+    build: MPM
+    ports: 
+      - 3001:3001
+    environment:
+      MYSQL_HOST: db
+    command: ./docker-entrypoint.sh
+
+  db:
+    image: mysql:8.0.19
+    ports:
+      - 27017:27017
+    volumes:
+      - rpg:/data/db
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+
+volumes:
+  rpg:

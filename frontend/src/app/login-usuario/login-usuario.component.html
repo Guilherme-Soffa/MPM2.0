@@ -1,0 +1,15 @@
+<body>
+  <form [formGroup]="form" class="mt-3">
+    <div class="caixa-cadastro">
+      <p class="titulo">Login de Usuario</p>
+      <div>
+        <input class="usuario" type="text" placeholder="Usuario" formControlName="usuario">
+      </div>
+      <div>
+        <input class="password" type="password" placeholder="Senha" formControlName="password">
+      </div>
+      <button type="submit" class="botaoEnviar" (click)="submit()">Login</button>
+      <p>Caso não tenha um conta <a href="/cadastro">clique aqui!</a></p>
+    </div>
+  </form>
+</body>
