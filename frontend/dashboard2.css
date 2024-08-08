@@ -1,0 +1,212 @@
+:root {
+    --bordas: #797979;
+    --preto: black;
+    --corPadrao: #663398; /* Cor padrão roxa */
+    --branco: #ffffff;
+    --aviso: #d9001b;
+    --btnHover: #dbdbdb;
+    --fundoAzulEscuro: #00008B; /* Azul escuro */
+    --gradienteRoxo: linear-gradient(135deg, #6e45e2, #88d3ce); /* Gradiente roxo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--fundoAzulEscuro); /* Fundo azul escuro */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--bordas);
+    padding: 32px;
+}
+
+.card.bg-dark {
+    background: var(--gradienteRoxo); /* Gradiente roxo na caixa de login */
+    border-radius: 1rem;
+    color: var(--branco);
+}
+
+.menuSVG,
+.nome,
+.perguntas,
+.meiaLua,
+.borda,
+.profile {
+    margin-right: 24px;
+}
+
+.borda {
+    border-right: 2px solid var(--bordas);
+    height: 50px;
+}
+
+.houseSVG {
+    margin-right: 4px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu>a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--preto);
+    border: 1px solid var(--bordas);
+    font-size: 14px;
+    width: 252px;
+    height: 74px;
+    padding-left: 32px;
+}
+
+.menu>.pagAtual {
+    background-color: var(--corPadrao);
+    color: var(--branco);
+}
+
+.ajustar {
+    display: flex;
+    flex-direction: row;
+}
+
+.main {
+    padding: 16px;
+    width: 100%;
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+}
+
+.infos>.titulo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--corPadrao);
+    margin-right: 16px;
+}
+
+.infos>.titulo2 {
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--corPadrao);
+}
+
+.infos>.aviso {
+    margin-right: 8px;
+}
+
+.infos>.textoAviso {
+    padding: 16px;
+    color: var(--aviso);
+    border: 1px solid var(--bordas);
+    margin-right: 16px;
+}
+
+.form-check-label {
+    margin-right: 16px;
+}
+
+.tableDash {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.coluna,
+.linha {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 96px;
+    height: 33px;
+    text-align: center;
+}
+
+.coluna {
+    background-color: #f2f2f2;
+}
+
+.titulo {
+    color: var(--corPadrao);
+    margin-top: 24px;
+}
+
+.form-control {
+    border-radius: 100px;
+}
+
+.main > .row > .col-6, .col-5, .col-2 > label {
+    color: var(--corPadrao);
+    font-weight: 700;
+} 
+
+.btn-secondary {
+    border: 2px solid var(--preto);
+    color: var(--preto);
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 100px;
+    background-color: #f0f0f0;
+    margin-top: 24px;
+    padding: 0;
+    width: 100%;
+}
+
+.table {
+    margin-top: 64px;
+    border: 2px solid var(--corPadrao);
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.1rem;
+}
+
+.table > thead > tr > th {
+    color: var(--corPadrao);
+    font-weight: 700;
+}
+
+.table > tbody > tr > td {
+    color: var(--corPadrao);
+    font-weight: 700;
+}
+
+.detalhe {
+    cursor: pointer;
+}
+
+.ExplicaSazo{
+    display: flex;
+    flex-direction: row;
+}
+
+.titulo2 {
+    color: var(--corPadrao);
+    margin-top: 64px;
+}
+
+.detalhe {
+    position: relative;
+}
+
+.explicacao {
+    display: none;
+    position: absolute;
+    top: 14%;
+    left: 45%; /* Posiciona a caixa à direita do ícone */
+    margin-left: 10px; /* Adiciona algum espaço entre o ícone e a caixa */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Certifique-se de que está acima de outros elementos */
+}
