@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="dashboard2.css">
+    <title>Cadastro - Pessoa Física</title>
+</head>
+<body>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                  <h2 class="fw-bold mb-2 text-uppercase" style="color: var(--preto);">Cadastro</h2>
+                  <p class="text-white-50 mb-5">Por favor, insira suas informações para se cadastrar</p>
+                  
+                  <form>
+                    <div class="row">
+                        <div class="form-outline form-white mb-4">
+                            <input type="text" id="typeFullName" class="form-control form-control-lg" placeholder="Nome Completo" required />
+                            <label class="form-label" for="typeFullName" style="color: var(--corPadrao);">Nome Completo</label>
+                          </div>
+            
+                          <div class="form-outline form-white mb-4">
+                            <input type="email" id="typeEmail" class="form-control form-control-lg" placeholder="Email" required />
+                            <label class="form-label" for="typeEmail" style="color: var(--corPadrao);">Email</label>
+                          </div>
+            
+                          <div class="form-outline form-white mb-4">
+                            <input type="tel" id="typePhone" class="form-control form-control-lg" placeholder="Telefone" required />
+                            <label class="form-label" for="typePhone" style="color: var(--corPadrao);">Telefone</label>
+                          </div>
+            
+                          <div class="form-outline form-white mb-4">
+                            <input type="password" id="typePassword" class="form-control form-control-lg" placeholder="Senha" required />
+                            <label class="form-label" for="typePassword" style="color: var(--corPadrao);">Senha</label>
+                          </div>
+            
+                          <div class="form-outline form-white mb-4">
+                            <input type="password" id="typeConfirmPassword" class="form-control form-control-lg" placeholder="Confirme sua Senha" required />
+                            <label class="form-label" for="typeConfirmPassword" style="color: var(--corPadrao);">Confirme sua Senha</label>
+                          </div>
+                    </div>
+                    
+                    <div class="row">
+
+                    </div>
+                  </form>
+
+                        
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Cadastrar</button>
+                  <div class="mt-5">
+                    <p class="mb-0">Já tem uma conta? <a href="#" class="text-white-50 fw-bold">Faça login</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+</body>

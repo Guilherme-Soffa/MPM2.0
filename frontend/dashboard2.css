@@ -5,8 +5,8 @@
     --branco: #ffffff;
     --aviso: #d9001b;
     --btnHover: #dbdbdb;
-    --fundoAzulEscuro: #00008B; /* Azul escuro */
-    --gradienteRoxo: linear-gradient(135deg, #6e45e2, #88d3ce); /* Gradiente roxo */
+    --fundo: linear-gradient(135deg, #3206f4, #1a3c57);
+    --gradienteRoxo: linear-gradient(135deg, darkblue, #d388d3); /* Gradiente roxo */
 }
 
 * {
@@ -15,7 +15,7 @@
 }
 
 body {
-    background-color: var(--fundoAzulEscuro); /* Fundo azul escuro */
+    background-image: linear-gradient(to right, darkblue, #d388d3);
 }
 
 .header {
