@@ -5,8 +5,8 @@
     --branco: #ffffff;
     --aviso: #d9001b;
     --btnHover: #dbdbdb;
-    --fundo: linear-gradient(135deg, #3206f4, #1a3c57);
-    --gradienteRoxo: linear-gradient(135deg, darkblue, #d388d3); /* Gradiente roxo */
+    --gradienteRoxo: linear-gradient(135deg, darkblue, rgb(58, 0, 139), purple, rgb(255, 2, 179));
+    --fundo: repeating-linear-gradient(to left top, darkblue 10px, rgb(58, 0, 139) 15px, purple, rgb(255, 2, 179)); /* Imagem de fundo */
 }
 
 * {
@@ -15,7 +15,7 @@
 }
 
 body {
-    background-image: linear-gradient(to right, darkblue, #d388d3);
+    background: var(--fundo);
 }
 
 .header {
