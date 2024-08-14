@@ -1,26 +1,19 @@
-FROM --platform=$BUILDPLATFORM maven:3.8.5-eclipse-temurin-17 AS builder
-WORKDIR /workdir/server
-COPY pom.xml /workdir/server/pom.xml
-RUN mvn dependency:go-offline
+FROM registry.access.redhat.com/ubi8/ubi
 
-COPY src /workdir/server/src
-RUN mvn install
+RUN yum -y update && \
+    yum -y install java-11-openjdk-devel && \
+    yum clean all && \
+    cd /tmp && \
+    curl -O https://downloads.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz && \
+    tar -xzvf apache-maven-3.9.6-bin.tar.gz -C /opt && \
+    ln -s /opt/apache-maven-3.9.6 /opt/maven && \
+    ln -s /opt/maven/bin/mvn /usr/local/bin/mvn && \
+    rm -f apache-maven-3.9.6-bin.tar.gz
 
-# install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
-CMD ["mvn", "spring-boot:run"]
+WORKDIR /app
 
-FROM builder as prepare-production
-RUN mkdir -p target/dependency
-WORKDIR /workdir/server/target/dependency
-RUN jar -xf ../*.jar
-
-FROM eclipse-temurin:17-jre-focal
+COPY . /app
 
 EXPOSE 8080
-VOLUME /tmp
-ARG DEPENDENCY=/workdir/server/target/dependency
-COPY --from=prepare-production ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY --from=prepare-production ${DEPENDENCY}/META-INF /app/META-INF
-COPY --from=prepare-production ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","br.uniceub.rpg.RpgApplication"]
+
+CMD ["mvn", "spring-boot:run"]

@@ -1,13 +1,31 @@
-FROM node:14.16.0-alpine3.13
-
-RUN addgroup app && adduser -S -G app app
-USER app
+# Stage 1: Build the Angular application
+FROM node:14-alpine AS build
 
 WORKDIR /app
-COPY package*.json ./
+
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
+
+# Install dependencies
 RUN npm install
-COPY . . 
 
-EXPOSE 3001 
+# Copy the rest of the application code
+COPY . .
 
-CMD ["npm", "start"]
+# Build the Angular application
+RUN npm run build
+
+# Stage 2: Serve the application with Nginx
+FROM nginx:alpine
+
+# Copy the built Angular application from the previous stage
+COPY --from=build /app/dist/mpm-frontend /usr/share/nginx/html
+
+# Copy the custom Nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]
