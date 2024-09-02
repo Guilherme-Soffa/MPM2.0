@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mpm-frontend": {
+    "projeto-mpm": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "projeto-rpg:build:production"
+              "browserTarget": "projeto-mpm:build:production"
             },
             "development": {
-              "browserTarget": "projeto-rpg:build:development"
+              "browserTarget": "projeto-mpm:build:development"
             }
           },
           "defaultConfiguration": "development",
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "projeto-rpg:build"
+            "browserTarget": "projeto-mpm:build"
           }
         },
         "test": {
@@ -111,5 +111,5 @@
       }
     }
   },
-  "defaultProject": "projeto-rpg"
+  "defaultProject": "projeto-mpm"
 }

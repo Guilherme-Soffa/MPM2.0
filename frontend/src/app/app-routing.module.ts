@@ -7,13 +7,8 @@ import { ProjetosComponent } from './projetos/projetos.component';
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/projetos",
+    redirectTo: "/cadastro",
     pathMatch: "full"
-  },
-
-  {
-    path: "projetos",
-    component: ProjetosComponent,
   },
 
   {

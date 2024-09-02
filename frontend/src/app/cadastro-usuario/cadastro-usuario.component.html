@@ -1,15 +1,52 @@
 <body>
-  <form [formGroup]="form" class="mt-3">
-    <div class="caixa-cadastro">
-      <p class="titulo">Cadastrar Novo Usuário</p>
-      <div>
-        <input class="usuario" type="text" placeholder="Usuario" formControlName="usuario">
+  <div class="form-container">
+    <form [formGroup]="form" class="mt-3">
+      <div class="caixa-cadastro">
+        <p class="titulo">Cadastro de Usuário</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input class="input" type="text" placeholder="Nome Completo" formControlName="nomeCompleto">
+          </div>
+
+          <div class="form-group">
+            <input class="input" type="email" placeholder="Email" formControlName="email">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input class="input" type="text" placeholder="CPF/CNPJ" formControlName="cpfCnpj">
+          </div>
+
+          <div class="form-group">
+            <input class="input" type="date" placeholder="Data de Nascimento" formControlName="dataNascimento">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input class="input" type="tel" placeholder="Telefone" formControlName="telefone">
+          </div>
+
+          <div class="form-group">
+            <input class="input" type="text" placeholder="Endereço" formControlName="endereco">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input class="input" type="password" placeholder="Senha" formControlName="senha">
+          </div>
+
+          <div class="form-group">
+            <input class="input" type="password" placeholder="Confirme sua Senha" formControlName="confirmaSenha">
+          </div>
+        </div>
+
+        <button type="submit" class="botaoEnviar" (click)="submit()">Cadastrar</button>
+        <p>Já tem uma conta? <a [routerLink]="['/login']">Faça login</a></p>
       </div>
-      <div>
-        <input class="password" type="password" placeholder="Senha" formControlName="password">
-      </div>
-      <button type="submit" class="botaoEnviar" (click)="submit()">Cadastrar</button>
-      <p><a href="/login">Já tenho um conta!</a></p>
-    </div>
-  </form>
+    </form>
+  </div>
 </body>

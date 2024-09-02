@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuarioDTO } from '../modules/usuario-dto';
 import { CadastroUsuarioService } from '../service/cadastro-usuario.service';
 import { NotificationService } from '../service/notification.service';
 
@@ -13,38 +12,47 @@ import { NotificationService } from '../service/notification.service';
 export class CadastroUsuarioComponent implements OnInit {
 
   form: FormGroup;
-  router: Router;
+  estados = [
+    { sigla: 'AC', nome: 'Acre' },
+    { sigla: 'AL', nome: 'Alagoas' },
+    // Adicione todos os estados aqui
+    { sigla: 'SP', nome: 'São Paulo' },
+    { sigla: 'RJ', nome: 'Rio de Janeiro' },
+    { sigla: 'MG', nome: 'Minas Gerais' }
+  ];
 
   constructor(
-    router: Router,
-    readonly formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
+    private router: Router,
     private cadastroUsuarioService: CadastroUsuarioService,
     private notificationService: NotificationService,
-  ) {
-    this.router = router;
-   }
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      usuario: [null, Validators.required],
-      password: [null, Validators.required]
-    })
+      nomeCompleto: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      cpfCnpj: [null, Validators.required],
+      dataNascimento: [null, Validators.required],
+      telefone: [null, Validators.required],
+      endereco: [null, Validators.required],
+      uf: [null, Validators.required],
+      senha: [null, Validators.required],
+      confirmaSenha: [null, Validators.required],
+    });
   }
-  submit(){
+
+  submit(): void {
     this.form.markAllAsTouched();
-    if(this.form.valid){
-      this.trataDados();
-      this.cadastroUsuarioService.cadastrarUsuario(this.trataDados()).subscribe(r=>{
-        this.router.navigate(["/login"])
-        this.notificationService.sucesso('Usuario Cadastrado com Sucesso!')
-      });
+    if (this.form.valid) {
+      if (this.form.value.senha === this.form.value.confirmaSenha) {
+        this.cadastroUsuarioService.cadastrarUsuario(this.form.value).subscribe(() => {
+          this.notificationService.sucesso('Usuário cadastrado com sucesso!');
+          this.router.navigate(['/login']);
+        });
+      } else {
+        this.notificationService.erro('As senhas não coincidem.');
+      }
     }
-  }
-  trataDados(): UsuarioDTO{
-    const dados = this.form.controls
-    return {
-      usuario: dados.usuario.value,
-      password: dados.password.value
-    } as UsuarioDTO;
   }
 }

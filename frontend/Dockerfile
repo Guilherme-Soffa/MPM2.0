@@ -1,31 +1,20 @@
-# Stage 1: Build the Angular application
-FROM node:14-alpine AS build
+# Use uma imagem base do Node.js
+FROM node:14-alpine
 
+# Defina o diretório de trabalho
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copie apenas os arquivos de dependências primeiro
 COPY package.json package-lock.json ./
 
-# Install dependencies
+# Instale as dependências
 RUN npm install
 
-# Copy the rest of the application code
+# Copie o restante do código para o contêiner
 COPY . .
 
-# Build the Angular application
-RUN npm run build
+# Exponha a porta usada pelo servidor de desenvolvimento do Angular
+EXPOSE 4200
 
-# Stage 2: Serve the application with Nginx
-FROM nginx:alpine
-
-# Copy the built Angular application from the previous stage
-COPY --from=build /app/dist/mpm-frontend /usr/share/nginx/html
-
-# Copy the custom Nginx configuration file
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Comando padrão para iniciar o servidor de desenvolvimento
+CMD ["npx", "ng", "serve", "--host", "0.0.0.0", "--poll", "2000"]

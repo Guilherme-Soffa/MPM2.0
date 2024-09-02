@@ -1,10 +1,10 @@
 {
-  "name": "projeto-rpg",
+  "name": "projeto-mpm",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json",
-    "build": "ng build",
+    "start": "npx ng serve --host 0.0.0.0 --poll 2000",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
