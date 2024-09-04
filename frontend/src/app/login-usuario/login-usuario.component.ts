@@ -47,6 +47,7 @@ export class LoginUsuarioComponent implements OnInit {
       });
     }
   }
+  
   trataDados(): UsuarioDTO{
     const dados = this.form.controls
     return {
@@ -54,5 +55,4 @@ export class LoginUsuarioComponent implements OnInit {
       password: dados.password.value
     } as UsuarioDTO;
   }
-
 }

@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { LoginUsuarioComponent } from './login-usuario/login-usuario.component';
 import { ProjetosComponent } from './projetos/projetos.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/cadastro",
+    redirectTo: "/landing-page",
     pathMatch: "full"
   },
 
@@ -19,6 +20,10 @@ const routes: Routes = [
     path: "login",
     component: LoginUsuarioComponent,
   },
+  {
+    path: "landing-page",
+    component: LandingPageComponent
+  }
 ];
 
 @NgModule({
