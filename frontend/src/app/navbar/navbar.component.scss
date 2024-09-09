@@ -1,0 +1,85 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.toolbar-title {
+  margin-left: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.botao {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Cor de fundo azul */
+  color: white; /* Cor do texto branca */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+.botao:hover {
+  background-color: #0056b3; /* Cor de fundo mais escura ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+}
+
+.botaoTela {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #28a745; /* Cor de fundo verde */
+  color: white; /* Cor do texto branca */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+.botaoTela:hover {
+  background-color: #218838; /* Cor de fundo mais escura ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+}
+
+.layout {
+  display: flex;
+  height: calc(100vh - 64px); /* Altura total menos a altura da toolbar */
+}
+
+.sidebar {
+  width: 250px; /* Largura fixa da sidebar */
+  background-color: #f5f5f5;
+  padding: 10px;
+  overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+  transition: transform 0.3s ease;
+  transform: translateX(-100%); /* Esconde a sidebar por padrão */
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Mostra a sidebar quando a classe open é adicionada */
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+}

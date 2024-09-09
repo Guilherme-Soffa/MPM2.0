@@ -1,0 +1,28 @@
+<app-navbar>
+  <div class="lista-projetos">
+    <div class="projeto" *ngFor="let projeto of projetos; let i = index">
+      <h3>{{ projeto.nome }}</h3>
+      <p>{{ projeto.descricao }}</p>
+      <button type="button" (click)="acessarProjeto(i)">Acessar</button>
+      <button type="button" (click)="editarProjeto(i)">Editar</button>
+      <button type="button" (click)="excluirProjeto(i)">Excluir</button>
+    </div>
+  </div>
+
+  <button type="button" (click)="abrirModal()">Adicionar Projeto</button>
+
+  <!-- Modal -->
+  <div class="modal" [class.show]="isModalOpen">
+    <div class="modal-content">
+      <span class="close" (click)="fecharModal()">&times;</span>
+      <h2>Adicionar Projeto</h2>
+      <form (ngSubmit)="adicionarProjeto()">
+        <label for="nome">Nome do Projeto:</label>
+        <input type="text" id="nome" [(ngModel)]="novoProjeto.nome" name="nome" required>
+        <label for="descricao">Descrição do Projeto:</label>
+        <textarea id="descricao" [(ngModel)]="novoProjeto.descricao" name="descricao" required></textarea>
+        <button type="submit">Adicionar</button>
+      </form>
+    </div>
+  </div>
+</app-navbar>

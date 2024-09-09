@@ -1,15 +1,17 @@
+<app-navbar>
 <body>
   <form [formGroup]="form" class="mt-3">
     <div class="caixa-cadastro">
-      <p class="titulo">TESTEEEEEEEEEEEE</p>
+      <p class="titulo">Login</p>
       <div>
-        <input class="usuario" type="text" placeholder="Usuario" formControlName="usuario">
+        <input class="usuario" type="text" placeholder="Email" formControlName="usuario">
       </div>
       <div>
         <input class="password" type="password" placeholder="Senha" formControlName="password">
       </div>
       <button type="submit" class="botaoEnviar" (click)="submit()">Login</button>
-      <p>Caso não tenha um conta <a href="/cadastro">clique aqui!</a></p>
+      <p>Primeira vez? <a href="/cadastro">clique aqui!</a></p>
     </div>
   </form>
 </body>
+</app-navbar>
