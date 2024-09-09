@@ -1,3 +1,4 @@
+<app-navbar>
 <body>
   <div class="form-container">
     <form [formGroup]="form" class="mt-3">
@@ -16,7 +17,7 @@
 
         <div class="form-row">
           <div class="form-group">
-            <input class="input" type="text" placeholder="CPF/CNPJ" formControlName="cpfCnpj">
+            <input class="input" type="text" placeholder="CPF" formControlName="cpfCnpj">
           </div>
 
           <div class="form-group">
@@ -27,10 +28,6 @@
         <div class="form-row">
           <div class="form-group">
             <input class="input" type="tel" placeholder="Telefone" formControlName="telefone">
-          </div>
-
-          <div class="form-group">
-            <input class="input" type="text" placeholder="Endereço" formControlName="endereco">
           </div>
         </div>
 
@@ -50,3 +47,4 @@
     </form>
   </div>
 </body>
+</app-navbar>

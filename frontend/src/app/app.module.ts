@@ -14,13 +14,23 @@ import { AppComponent } from './app.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { LoginUsuarioComponent } from './login-usuario/login-usuario.component';
 import { ProjetosComponent } from './projetos/projetos.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';  // Import MatListModule
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroUsuarioComponent,
     LoginUsuarioComponent,
-    ProjetosComponent
+    ProjetosComponent,
+    HomePageComponent,
+    LandingPageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +44,10 @@ import { ProjetosComponent } from './projetos/projetos.component';
     MatInputModule,
     MatTableModule,
     MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatListModule,
     ToastrModule.forRoot(),
   ],
   providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],

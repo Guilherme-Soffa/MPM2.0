@@ -1,0 +1,47 @@
+<mat-toolbar color="primary" class="toolbar">
+  <div class="toolbar-container">
+    <button mat-icon-button (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <p>Projeto MPM</p>
+
+    <button class="botaoTela" mat-button [routerLink]="['/home']" [queryParams]="{usuario: usuario}">
+      <mat-icon>home</mat-icon>
+      Tela Inicial
+    </button>
+    <span class="example-spacer"></span>
+    <div *ngIf="usuario != null">
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
+    <div class="auth-buttons" *ngIf="usuario == null">
+      <button class="botao" mat-button [routerLink]="['/login']">Entrar</button>
+      <button class="botao" mat-button [routerLink]="['/cadastro']">Criar Conta</button>
+    </div>
+  </div>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/editar-usuario']" [queryParams]="{usuario: usuario}">Edit Profile</button>
+</mat-menu>
+
+<div class="layout">
+  <div class="sidebar" [class.open]="isSidebarOpen">
+    <mat-nav-list>
+      <a mat-list-item href="#">Dashboard</a>
+      <a mat-list-item href="#">Cadastro</a>
+      <a mat-list-item href="#">Estimar Vendas</a>
+      <a mat-list-item href="#">Investimentos</a>
+      <a mat-list-item href="#">Custos Fixos</a>
+      <a mat-list-item href="#">Custos Variados</a>
+      <a mat-list-item href="#">Mão de Obra</a>
+      <a mat-list-item href="#">Estimar sazonalidade</a>
+      <a mat-list-item href="#">Projetos</a>
+    </mat-nav-list>
+  </div>
+
+  <div class="main-content">
+    <ng-content></ng-content>
+  </div>
+</div>

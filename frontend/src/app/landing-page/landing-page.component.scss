@@ -1,142 +1,56 @@
-/* Estilos globais */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-/* Container principal */
-.container-fluid {
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* Estilo da barra de navegação superior */
-.header {
-    background-color: #35424a;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
-    align-items: center;
-}
-
-.header .nome {
-    font-size: 24px;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.header img {
-    vertical-align: middle;
-}
-
-.header .perguntas,
-.header .profile {
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-/* Barra lateral */
-.menu {
-    width: 200px;
-    background-color: #2e2e2e;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 60px;
-}
-
-.menu a {
-    display: block;
-    color: #f4f4f4;
-    padding: 15px 20px;
-    text-decoration: none;
-    font-size: 16px;
-    border-bottom: 1px solid #444;
-}
-
-.menu a:hover {
-    background-color: #575757;
-}
-
-.menu a.pagAtual {
-    background-color: #e8491d;
-    color: white;
-}
-
-/* Área principal */
-.main {
-    margin-left: 220px;
-    padding: 20px;
-    background-color: #fff;
-    min-height: 100vh;
-}
-
-.titulo-projetos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.titulo-projetos h1 {
-    margin: 0;
-    font-size: 28px;
-}
-
-.titulo-projetos button {
-    padding: 10px 20px;
-    background-color: #35424a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.titulo-projetos button:hover {
-    background-color: #e8491d;
-}
-
-/* Lista de projetos */
 .lista-projetos {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .projeto {
-    background-color: #f4f4f4;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.projeto h3 {
-    margin: 0 0 10px 0;
-    font-size: 22px;
-    color: #35424a;
+button {
+  margin-right: 5px;
 }
 
-.projeto p {
-    margin: 0 0 15px 0;
-    font-size: 16px;
-    color: #666;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.projeto button {
-    margin-right: 10px;
-    padding: 8px 16px;
-    background-color: #35424a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.modal.show {
+  display: block;
 }
 
-.projeto button:hover {
-    background-color: #e8491d;
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

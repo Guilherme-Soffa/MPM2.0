@@ -63,16 +63,18 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   submit(): void {
-    this.form.markAllAsTouched();
-    if (this.form.valid) {
-      if (this.form.value.senha === this.form.value.confirmaSenha) {
-        this.cadastroUsuarioService.cadastrarUsuario(this.form.value).subscribe(() => {
-          this.notificationService.sucesso('Usuário cadastrado com sucesso!');
-          this.router.navigate(['/login']);
-        });
-      } else {
-        this.notificationService.erro('As senhas não coincidem.');
-      }
-    }
+    // this.form.markAllAsTouched();
+    // if (this.form.valid) {
+    //   if (this.form.value.senha === this.form.value.confirmaSenha) {
+    //     this.cadastroUsuarioService.cadastrarUsuario(this.form.value).subscribe(() => {
+    //       this.notificationService.sucesso('Usuário cadastrado com sucesso!');
+    //       this.router.navigate(['/login']);
+    //     });
+    //   } else {
+    //     this.notificationService.erro('As senhas não coincidem.');
+    //   }
+    // }
+    this.router.navigate(['/landing-page']);
+
   }
 }
