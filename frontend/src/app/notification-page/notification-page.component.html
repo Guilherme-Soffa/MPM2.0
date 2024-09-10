@@ -1,0 +1,45 @@
+<div class="page-container">
+    <!-- Barra no topo -->
+    <div class="top-bar">
+      <h1>Empresa</h1>
+    </div>
+  
+    <div class="content-wrapper">
+      <!-- Barra lateral -->
+      <div class="side-bar">
+        <ul>
+          <li><a href="#">Projeto</a></li>
+          <li><a href="#">Perfis</a></li>
+          <li><a href="./notification-page.component.html">Notificação</a></li>
+          <li><a href="#">Empresa</a></li>
+        </ul>
+      </div>
+  
+      <!-- Conteúdo da página de notificação -->
+      <div class="notification-page">
+        <h2>Notificações da Empresa</h2>
+  
+        <div class="notification-table">
+          <!-- Cabeçalho da tabela -->
+          <div class="notification-header">
+            <div class="col">Solicitante</div>
+            <div class="col">Descrição</div>
+            <div class="col">Ação</div>
+          </div>
+  
+          <!-- Lista de notificações -->
+          <div class="notification-row" *ngFor="let notificacao of notificacoes; let i = index" [class.lida]="notificacao.lida">
+            <div class="col">{{ notificacao.solicitante }}</div>
+            <div class="col">{{ notificacao.descricao }}</div>
+            <div class="col">{{ notificacao.acao }}</div>
+            <div class="col">
+              <button type="button" (click)="marcarComoLida(i)">Marcar como lida</button>
+            </div>
+          </div>
+        </div>
+  
+        <button class="btn-marcar-todas" type="button" (click)="marcarTodasComoLidas()">Marcar todas como lidas</button>
+      </div>
+    </div>
+  </div>
+  
