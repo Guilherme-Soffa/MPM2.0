@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -14,9 +15,12 @@ export class LandingPageComponent {
 
   isModalOpen = false;
   novoProjeto = { nome: '', descricao: '' };
+  
+  constructor(private router: Router) {}
 
   acessarProjeto(index: number) {
-    console.log('Acessar projeto', this.projetos[index]);
+    this.router.navigate(['/notifications']);
+    //console.log('Acessar projeto', this.projetos[index]);
   }
 
   editarProjeto(index: number) {
@@ -40,4 +44,5 @@ export class LandingPageComponent {
     this.novoProjeto = { nome: '', descricao: '' };
     this.fecharModal();
   }
+
 }

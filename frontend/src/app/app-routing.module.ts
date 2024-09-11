@@ -5,6 +5,7 @@ import { LoginUsuarioComponent } from './login-usuario/login-usuario.component';
 import { ProjetosComponent } from './projetos/projetos.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { NotificationPageComponent } from './notification-page/notification-page.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: LandingPageComponent
+  },
+  { 
+    path: 'notifications', 
+    component: NotificationPageComponent 
   }
 ];
 

@@ -3,7 +3,7 @@
     <div class="projeto" *ngFor="let projeto of projetos; let i = index">
       <h3>{{ projeto.nome }}</h3>
       <p>{{ projeto.descricao }}</p>
-      <button type="button" (click)="acessarProjeto(i)">Acessar</button>
+      <button type="button" [routerLink]="['/notifications']" (click)="acessarProjeto(i)">Acessar</button>
       <button type="button" (click)="editarProjeto(i)">Editar</button>
       <button type="button" (click)="excluirProjeto(i)">Excluir</button>
     </div>
